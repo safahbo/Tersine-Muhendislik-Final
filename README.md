@@ -1,12 +1,13 @@
+# Static String Extractor & Classifier
+
 <div align="center">
 
-  # Static String Extractor & Classifier
+<a href="https://istinye.edu.tr">
+  <img src="docs/assets/istinye-logo.png" alt="Istinye University" width="180"/>
+</a>
 
-  <a href="https://istinye.edu.tr">
-    <img src="docs/assets/istinye-logo.png" alt="Istinye University" width="180"/>
-  </a>
+<br>
 
-  <br> 
 ![GitHub](https://img.shields.io/badge/GitHub-Private-red?style=flat-square\&logo=github)
 ![Language](https://img.shields.io/badge/Language-Python-blue?style=flat-square)
 ![Status](https://img.shields.io/badge/Status-Completed-success?style=flat-square)
@@ -83,7 +84,7 @@ Sistem, klasik regex tabanlı string çıkarımının ötesine geçerek:
 ├── reports/
 │   └── final-report.md
 └── src/
-└── main.py
+    └── main.py
 ```
 
 ---
@@ -109,7 +110,25 @@ python src/main.py \
 | Magic Byte Tabanlı Dosya Tespiti                  | ✅      |
 | mmap ile Düşük Seviye Bellek Yönetimi             | ✅      |
 | Shannon Entropisi ile Sezgisel Analiz (Heuristic) | ✅      |
+| Kriptografik Anahtar Tespiti                      | ✅      |
+| API Token Tespiti                                 | ✅      |
 | Şüpheli API Çağrısı Tespiti                       | ✅      |
+| ASCII String Çıkarımı                             | ✅      |
+| UTF-16LE String Kurtarma                          | ✅      |
+| Binary Dosya Sınıflandırma                        | ✅      |
+
+---
+
+# 🔬 Technical Capabilities
+
+* Binary string extraction
+* UTF-16LE string recovery
+* Entropy-based secret detection
+* API endpoint identification
+* Magic byte file classification
+* Memory-mapped file analysis (mmap)
+* Static reverse engineering support
+* Heuristic-based malware artifact discovery
 
 ---
 
@@ -124,18 +143,43 @@ python src/main.py \
 
 ---
 
-# 🔬 Technical Capabilities
+# 🛠 Technologies Used
 
-* Binary string extraction
-* UTF-16LE string recovery
-* Entropy-based secret detection
-* API endpoint identification
-* Magic byte file classification
-* Memory-mapped file analysis (`mmap`)
-* Static reverse engineering support
+* Python 3.x
+* mmap
+* re (Regular Expressions)
+* math
+* argparse
+* pathlib
+* JSON Serialization
+
+---
+
+# 🎯 Project Objectives
+
+Bu proje kapsamında aşağıdaki hedefler gerçekleştirilmiştir:
+
+* Binary dosyalar üzerinde statik analiz gerçekleştirmek.
+* Düşük seviyeli bellek erişimi ile performanslı string çıkarımı yapmak.
+* Hassas bilgi sızıntılarını tespit etmek.
+* Reverse engineering çalışmalarında kullanılabilecek yardımcı araç geliştirmek.
+* Entropi tabanlı sezgisel analiz yöntemlerini uygulamak.
 
 ---
 
 # ⚠️ Educational Purpose
 
-Bu proje yalnızca eğitim ve akademik araştırma amacıyla geliştirilmiştir. Elde edilen sonuçların güvenlik testleri veya adli analiz süreçlerinde kullanılması durumunda ek doğrulama mekanizmaları uygulanmalıdır.
+Bu proje yalnızca eğitim ve akademik araştırma amacıyla geliştirilmiştir.
+
+Elde edilen sonuçların akademik testler, güvenlik araştırmaları veya adli analiz süreçlerinde kullanılması durumunda ek doğrulama mekanizmalarının uygulanması önerilir.
+
+Bu araç tek başına kesin güvenlik değerlendirmesi sağlamaz ve profesyonel analiz süreçlerinin yerine geçmez.
+
+---
+
+<div align="center">
+
+**BGT210 – Reverse Engineering Final Project**
+**Istinye University – 2025/2026 Spring Semester**
+
+</div>
