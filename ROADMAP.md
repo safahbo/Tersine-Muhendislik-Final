@@ -1,5 +1,4 @@
-# ROADMAP — Static String Extractor & Classifier
-# ROADMAP — Statik String Çıkarıcı ve Sınıflandırıcı
+# ROADMAP — Advanced Binary String Extraction Engine
 
 > Course / Ders: Reverse Engineering (BGT210) · Istinye University
 > Instructor / Danışman: Keyvan Arasteh
@@ -10,10 +9,10 @@
 
 Tek satır kod yazmadan önce şu soruları yanıtladım:
 
-- What is the project? / Proje nedir? -> Binary dosyalarındaki gömülü metinleri çıkaran bir araç.
-- How does it work? / Nasıl çalışır? -> Dosyayı byte düzeyinde okur, regex ile anlamlı dizeleri bulur ve sınıflandırır.
-- What are the inputs/outputs? / Girdiler/çıktılar neler? -> Girdi: Binary dosya. Çıktı: Sınıflandırılmış JSON raporu.
-- What tools will I use and why? / Hangi araçları kullanacağım ve neden? -> Dış bağımlılık olmadan saf Python ve `re` kütüphanesi.
+- What is the project? / Proje nedir? -> Sadece string çıkaran değil, çıkarılan stringin anlamsal önemini (entropisini) ölçen bir analiz motoru.
+- How does it work? / Nasıl çalışır? -> Dosyayı `mmap` ile RAM'e alır. Regex ile ASCII ve UTF-16 stringleri bulur. Anlamsız karakter yığınları ile gerçek kriptografik anahtarları ayırmak için Shannon Entropisi hesaplar.
+- What are the inputs/outputs? / Girdiler/çıktılar neler? -> Girdi: Herhangi bir binary. Çıktı: Entropi skorları ve şüpheli API'leri içeren JSON raporu.
+- What tools will I use and why? / Hangi araçları kullanacağım ve neden? -> Harici kütüphane bağımlılığı yaratmamak için saf Python (mmap, math, re, json).
 
 ---
 
@@ -23,9 +22,9 @@ Tek satır kod yazmadan önce şu soruları yanıtladım:
 
 | Topic / Konu | Status / Durum | Notes / Notlar |
 |--------------|----------------|----------------|
-| Regex Pattern'leri | ✅ Tamamlandı | IP, URL ve Email tespiti için patternler belirlendi. |
-| Byte/String Çevrimi | ✅ Tamamlandı | Binary veriyi decode etme test edildi. |
-| JSON Raporlama | ✅ Tamamlandı | Çıktıların düzenlenmesi sağlandı. |
+| mmap vs f.read() | ✅ Tamamlandı | Büyük APK'larda f.read() belleği şişiriyordu, mmap'e geçildi. |
+| Magic Bytes Tespiti | ✅ Tamamlandı | Dosya uzantısına güvenmek yerine header okuma mantığı eklendi. |
+| Shannon Entropisi | ✅ Tamamlandı | Base64 regex'in çok fazla false-positive vermesini çözmek için entropi matematiği entegre edildi. |
 
 ---
 
@@ -39,11 +38,11 @@ Tek satır kod yazmadan önce şu soruları yanıtladım:
 
 ## Phase 3 / Faz 3: Implementation / Uygulama
 
-### Module / Modül: Core Extractor
+### Module / Modül: Heuristic Analyzer
 
-1. Step 1 / Adım 1 — Binary dosyanın okunması
-2. Step 2 / Adım 2 — Regex filtrelerinin uygulanması
-3. Step 3 / Adım 3 — JSON çıktısının üretilmesi
+1. Step 1 / Adım 1 — Magic byte kontrolü ve mmap ile dosya yükleme
+2. Step 2 / Adım 2 — UTF-16 ve ASCII regex ayıklaması
+3. Step 3 / Adım 3 — IP/URL sınıflandırması ve yüksek entropili (gizli) veri tespiti
 
 ---
 
@@ -66,4 +65,4 @@ Tek satır kod yazmadan önce şu soruları yanıtladım:
 
 ## What I Learned / Öğrendiklerim
 
-Regex yazarken false-positive'leri (yanlış pozitifleri) engellemenin ne kadar zor olduğunu gördüm. Özellikle Base64 pattern'leri rastgele byte dizileriyle çok sık karışabiliyor, bu yüzden uzunluk limiti eklemek zorunda kaldım.
+Sadece Base64 pattern'i aramanın statik analizde yetersiz kaldığını fark ettim. Rastgele byte dizileri Base64 gibi görünebiliyordu. Shannon Entropisini koda entegre ettikten sonra, entropi skoru 4.6'nın üzerinde olan stringleri filtreleyerek gerçek API anahtarlarını ve şifreleri çok daha yüksek bir doğrulukla bulabildiğimi gördüm. Ayrıca `mmap` kullanımı I/O performansını ciddi şekilde artırdı.
