@@ -114,7 +114,7 @@ class HeuristicStringAnalyzer:
         }
 
 def main():
-    parser = argparse.ArgumentParser(description="Advanced Binary String Extraction & Heuristic Analysis")
+    parser = argparse.ArgumentParser(description="Static String Extractor & Classifier")
     parser.add_argument('-f', '--file', required=True, help="Target binary file")
     parser.add_argument('-o', '--out', default='reports/analysis.json', help="Output JSON path")
     args = parser.parse_args()
