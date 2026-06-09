@@ -4,7 +4,7 @@
 - Hedef / Target: `sample_malware.apk`
 - Tespit Edilen Tür / File Type: APK / ZIP Archive
 - Boyut / Size: 12.4 MB
-- Araç / Tool: Advanced Heuristic Analysis Engine
+- Araç / Tool: Static String Extractor & Classifier
 
 ## Risk Skoru / Risk Score: 92/100
 
