@@ -1,9 +1,12 @@
 <div align="center">
+
+  # Static String Extractor & Classifier
+
   <a href="https://istinye.edu.tr">
     <img src="docs/assets/istinye-logo.png" alt="Istinye University" width="180"/>
   </a>
-# Advanced Binary String Extraction & Heuristic Analysis Engine
 
+  <br> 
 ![GitHub](https://img.shields.io/badge/GitHub-Private-red?style=flat-square\&logo=github)
 ![Language](https://img.shields.io/badge/Language-Python-blue?style=flat-square)
 ![Status](https://img.shields.io/badge/Status-Completed-success?style=flat-square)
