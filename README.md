@@ -76,6 +76,8 @@ Sistem, klasik regex tabanlı string çıkarımının ötesine geçerek:
 ├── .env.example
 ├── .gitignore
 ├── docs/
+│   ├── assets/
+│   │   └── istinye-logo.png
 │   ├── modules/
 │   │   └── heuristic-engine.md
 │   ├── research/
