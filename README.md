@@ -1,8 +1,7 @@
 <div align="center">
   <a href="https://istinye.edu.tr">
-    <img src="docs/assets/istinye-university-logo.webp" alt="Istinye University" width="180"/>
+    <img src="docs/assets/istinye-logo.png" alt="Istinye University" width="180"/>
   </a>
-
 # Advanced Binary String Extraction & Heuristic Analysis Engine
 
 ![GitHub](https://img.shields.io/badge/GitHub-Private-red?style=flat-square\&logo=github)
@@ -81,7 +80,7 @@ Sistem, klasik regex tabanlı string çıkarımının ötesine geçerek:
 ├── reports/
 │   └── final-report.md
 └── src/
-    └── main.py
+└── main.py
 ```
 
 ---
